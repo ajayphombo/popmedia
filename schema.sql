@@ -1,0 +1,30 @@
+
+CREATE DATABASE popmedia;
+USE popmedia;
+
+CREATE TABLE `users` (
+ 	`id` INT NOT NULL AUTO_INCREMENT,
+	`username` VARCHAR(255) NOT NULL UNIQUE,
+	`email` VARCHAR(255) NOT NULL UNIQUE,
+	`password_hash`VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `post` (
+ `id` INT (11) AUTO_INCREMENT NOT NULL,
+ `title` VARCHAR (255) NOT NULL,
+ `post` VARCHAR( 255) NOT NULL,
+ `category` VARCHAR (255) NOT NULL,
+ `posted_on` DATETIME NOT NULL,
+
+ PRIMARY KEY ( `id` )
+
+);
+
+
+CREATE TABLE `comments` (
+  `id` INT (11) AUTO_INCREMENT NOT NULL,
+  `comments` VARCHAR (255)NOT NULL,
+
+  PRIMARY KEY (`id`)
+);

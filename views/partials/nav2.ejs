@@ -1,0 +1,157 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+  <style>
+    nav {
+      background-color: #fff;
+    }
+
+    .btn-floating.btn-large {
+      width: 56px;
+      height: 56px;
+      padding: 0;
+      margin: auto;
+      display: block;
+
+    }
+
+    a.btn {
+      margin-top: 30%;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <div>
+    <div>
+
+      <a id="button" class="btn-floating btn-large pulse red"><i class="material-icons"></i></a>
+
+
+      <div id="next">
+
+        <button data-target="modal1" class="btn modal-trigger">Login</button>
+        <div id="modal1" class="modal">
+            <h5 class="modal-close">&#10005;</h5>
+            <div class="modal-content center">
+  
+              <form action="/login" method="POST">
+                <div class="input-field">
+                  <input type="text" id="username" name="username">
+                  <label for="Name">username</label>
+                </div>
+                
+                <div class="input-field col s12">
+                    <input type="text" id="password" name="password">
+                  <label>password</label>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
+              </form>
+            </div>
+          </div>
+
+
+        <button data-target="modal2" class="btn modal-trigger">Sign-Up</button>
+        <div id="modal2" class="modal">
+            <h5 class="modal-close">&#10005;</h5>
+            <div class="modal-content center">
+  
+              <form action="/signup" method="POST">
+                <div class="input-field">
+                  <input type="text" id="username" name="username">
+                  <label for="username">username</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="email" name="email" >
+                    <label>email</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="password" name="password">
+                  <label>password</label>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        <form onclick="window.location.href='/'" class="btn modal-trigger" type="button">
+          Home
+         </form>
+         
+        
+        <button data-target="modal6" class="btn modal-trigger">Post</button>
+        <div id="modal6" class="modal">
+          <h5 class="modal-close">&#10005;</h5>
+          <div class="modal-content center">
+
+            <form action="/new" method="POST">
+              <div class="input-field">
+                <input type="text" id="title" name="title">
+                <label for="title">Topic Post</label>
+              </div>
+              <div class="input-field col s12">
+                  <input type="text" id="post" name="post" >
+                  <label>post</label>
+              </div>
+              <div class="input-field col s12">
+                  <input type="text" id="category" name="category">
+                <label>category</label>
+              </div>
+              <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </form>
+          </div>
+        </div>
+  </div>
+  </div>
+
+
+  <script>
+    $(document).ready(function () {
+      $('.modal').modal();
+    });
+
+    var hidden = $('#next').hide();
+    $('#button').on('click', function () {
+      hidden.toggle();
+    });
+    $('.dropdown-trigger').dropdown();
+    $(document).ready(function () {
+      $('select').formSelect();
+    });
+  </script>
+
+
+</body>
+
+</html>
