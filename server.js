@@ -7,7 +7,17 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var expressValidator= require('express-validator');
 //var passport=require("passport");
-
+if(process.env.JAWSDB_URL){
+  connection= mysql.createConnection(process.env.JAWSDB_URL);
+}else{
+var connection = mysql.createConnection({
+  host: "localhost",
+  port: 3306,
+  user: "root",
+  password: "password",
+  database: "popmedia"
+});
+}
 //allow sessions
 app.use(session({
     secret: 'app',
@@ -17,13 +27,6 @@ app.use(session({
   }))
 app.use(cookieParser());
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "password",
-  database: "popmedia"
-});
 
 app.use( bodyParser.urlencoded({extended: true}))
 
@@ -153,6 +156,6 @@ app.get('/profile', function(req,res){
    res.render('profile', {qs: req.query});
 });
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen(process.env.JAWSDB_URL || 3000, function(){
     console.log('server listening on port 3000');
 });
