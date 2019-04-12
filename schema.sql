@@ -1,4 +1,4 @@
-
+DROP DATABASE IF EXISTS popmedia;
 CREATE DATABASE popmedia;
 USE popmedia;
 

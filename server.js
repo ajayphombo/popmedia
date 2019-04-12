@@ -1,11 +1,12 @@
 var express = require('express'); // put the module you want in the require function
 var bodyParser = require('body-parser'); 
 var mysql = require("mysql");
-var app = express(); // set app to express function then intialize it 
 var bcrypt = require('bcryptjs');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var expressValidator= require('express-validator');
+var app = express(); // set app to express function then intialize it 
+
 //var passport=require("passport");
 if(process.env.JAWSDB_URL){
   connection= mysql.createConnection(process.env.JAWSDB_URL);
@@ -18,6 +19,8 @@ var connection = mysql.createConnection({
   database: "popmedia"
 });
 }
+
+
 //allow sessions
 app.use(session({
     secret: 'app',
