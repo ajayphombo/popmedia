@@ -9,7 +9,7 @@ var app = express(); // set app to express function then intialize it
 
 //var passport=require("passport");
 if(process.env.JAWSDB_URL){
-  var connection= mysql.createConnection(process.env.JAWSDB_URL);
+  connection= mysql.createConnection(process.env.JAWSDB_URL);
 }else{
 var connection = mysql.createConnection({
   host: "localhost",
@@ -43,7 +43,7 @@ app.get('/', function(req, res) {
       if (err) {
         return res.status(500).end();
       }
-      res.render("/views/index",{data:data});
+      res.render("index",{data:data});
       console.log(data[0].title);
       console.log(data)
     });
